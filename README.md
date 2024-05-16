@@ -13,15 +13,12 @@ Please note that the application was built on Windows, and compatibility with ot
 Before running the application, ensure you have the following dependencies installed. You can install them using pip:
 
 ```bash
-
 pip install tkinter zxcvbn cryptography
-
-bash```
+```
 
 ## Running the Application
 
 Run the application with following command:
 
 ```bash
-
 python gui.py
