@@ -41,6 +41,7 @@ def create_database():
     conn.commit()
     conn.close()
 
+
 """
 Function to register a new user in the password manager system.
 
