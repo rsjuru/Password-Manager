@@ -726,7 +726,7 @@ def modify_password_view(pw_id, website):
     label_old_pw.grid(row=4, column=0, padx=10, pady=5)
     entry_old_pw = tk.Entry(frame, show="*")
     entry_old_pw.grid(row=4, column=1, padx=10, pady=5)
-    entry_old_pw.bind("<KeyRelease>", enable_save_button())
+    entry_old_pw.bind("<KeyRelease>", enable_save_button)
 
     # Checkbox to toggle visibility of the old password
     show_old_password = tk.BooleanVar()
@@ -739,14 +739,14 @@ def modify_password_view(pw_id, website):
     label_new_pw.grid(row=5, column=0, padx=10, pady=5)
     entry_new_pw = tk.Entry(frame, show="*")
     entry_new_pw.grid(row=5, column=1, padx=10, pady=5)
-    entry_new_pw.bind("<KeyRelease>", enable_save_button())
+    entry_new_pw.bind("<KeyRelease>", enable_save_button)
 
     # Confirm password and entry field
     label_confirm_pw = tk.Label(frame, text="Confirm new password: ")
     label_confirm_pw.grid(row=6, column=0, padx=10, pady=5)
     entry_confirm_pw = tk.Entry(frame, show="*")
     entry_confirm_pw.grid(row=6, column=1, padx=10, pady=5)
-    entry_confirm_pw.bind("<KeyRelease>", enable_save_button())
+    entry_confirm_pw.bind("<KeyRelease>", enable_save_button)
 
     show_new_pw = tk.BooleanVar()
     check_show_new_pw = tk.Checkbutton(frame, text="Show new password", variable=show_new_pw,
@@ -815,6 +815,10 @@ def change_pw_view():
     # Clear the frame
     clear_frame()
 
+    # Configure grid
+    frame.grid_columnconfigure(0, weight=1)
+    frame.grid_rowconfigure(0, weight=1)
+
     # Function to enable the save button when all fields are filled
     def enable_save_button(*args):
         if entry_old_pw.get() and entry_new_pw.get() and entry_confirm.get():
@@ -822,9 +826,6 @@ def change_pw_view():
         else:
             save_button.config(state="disabled")
 
-    # Configure grid
-    frame.grid_columnconfigure(0, weight=1)
-    frame.grid_rowconfigure(0, weight=1)
 
     # Headers and instructions
     label_header = tk.Label(frame, text="Change password", font=("Arial", 16, "bold"))
@@ -838,7 +839,7 @@ def change_pw_view():
     label_old_pw.grid(row=2, column=0, padx=10, pady=5)
     entry_old_pw = tk.Entry(frame, show="*")
     entry_old_pw.grid(row=2, column=1, padx=10, pady=5)
-    entry_old_pw.bind("<KeyRelease>", enable_save_button())
+    entry_old_pw.bind("<KeyRelease>", enable_save_button)
 
     # Checkbox to toggle visibility of old password
     show_old_pw = tk.BooleanVar()
@@ -851,14 +852,14 @@ def change_pw_view():
     label_new_pw.grid(row=3, column=0, padx=10, pady=5 )
     entry_new_pw = tk.Entry(frame, show="*")
     entry_new_pw.grid(row=3, column=1, padx=10, pady=5)
-    entry_new_pw.bind("<KeyRelease>", enable_save_button())
+    entry_new_pw.bind("<KeyRelease>", enable_save_button)
 
     # Label and entry field for new password confirmation
     label_confirm = tk.Label(frame, text="Confirm password: ")
     label_confirm.grid(row=4, column=0, padx=10, pady=5)
     entry_confirm = tk.Entry(frame, show="*")
     entry_confirm.grid(row=4, column=1, padx=10, pady=5)
-    entry_confirm.bind("<KeyRelease>", enable_save_button())
+    entry_confirm.bind("<KeyRelease>", enable_save_button)
 
     # Checkbox to toggle visibility of new password
     show_new_pw = tk.BooleanVar()
